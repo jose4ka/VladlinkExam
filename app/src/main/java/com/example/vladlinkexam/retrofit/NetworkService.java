@@ -5,6 +5,12 @@ import com.example.vladlinkexam.retrofit.api.ApiVladlinkLogin;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.io.IOException;
+
+import okhttp3.Interceptor;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 import retrofit2.Retrofit;
 import retrofit2.Retrofit.Builder;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -25,6 +31,8 @@ public class NetworkService {
 
     //В конструкторе инициализируем библиотечный объект для дальнейшей работы
     private NetworkService(){
+
+
         mRetrofit = new Retrofit.Builder().
                 baseUrl(BASE_URL).
                 addConverterFactory(ScalarsConverterFactory.create()).

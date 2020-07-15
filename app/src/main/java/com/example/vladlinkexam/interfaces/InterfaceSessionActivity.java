@@ -7,5 +7,14 @@
 
 package com.example.vladlinkexam.interfaces;
 
+import com.example.vladlinkexam.model.accounts.accountsList.MAccountsListData;
+import com.example.vladlinkexam.model.accounts.oneAccount.MOneAccount;
+
+import java.util.List;
+
 public interface InterfaceSessionActivity {
+
+    List<MAccountsListData> getAccountsList(String token);
+
+    MOneAccount getSelectedAccount(String token);
 }

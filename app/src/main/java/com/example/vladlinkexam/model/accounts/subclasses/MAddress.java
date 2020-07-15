@@ -1,11 +1,11 @@
 /*
- * Created by Dmitry Garmyshev on 14.07.20 22:07
+ * Created by Dmitry Garmyshev on 15.07.20 15:26
  * Copyright (c) 2020 . All rights reserved.
- * Last modified 14.07.20 22:07
+ * Last modified 14.07.20 22:13
  *
  */
 
-package com.example.vladlinkexam.model.accounts;
+package com.example.vladlinkexam.model.accounts.subclasses;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

@@ -1,21 +1,20 @@
 /*
- * Created by Dmitry Garmyshev on 14.07.20 22:05
+ * Created by Dmitry Garmyshev on 15.07.20 15:26
  * Copyright (c) 2020 . All rights reserved.
- * Last modified 14.07.20 22:05
+ * Last modified 15.07.20 15:22
  *
  */
 
-package com.example.vladlinkexam.model.accounts;
+package com.example.vladlinkexam.model.accounts.oneAccount;
 
-import android.media.MediaActionSound;
-
+import com.example.vladlinkexam.model.accounts.subclasses.MAddress;
+import com.example.vladlinkexam.model.accounts.subclasses.MTariffCurrent;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class MAccount {
-
+public class MOneAccount {
     @SerializedName("id")
     @Expose
     private long id;
@@ -64,9 +63,9 @@ public class MAccount {
     @Expose
     private boolean isJuridical;
 
-    @SerializedName("is_juridical")
+    @SerializedName("is_sms")
     @Expose
-    private int isSMS[];
+    private String isSMS;
 
     @SerializedName("city_id")
     @Expose
@@ -92,7 +91,7 @@ public class MAccount {
     @Expose
     private int ucStatus;
 
-    public MAccount(){}
+    public MOneAccount(){}
 
     public long getId() {
         return id;
@@ -190,11 +189,11 @@ public class MAccount {
         isJuridical = juridical;
     }
 
-    public int[] getIsSMS() {
+    public String getIsSMS() {
         return isSMS;
     }
 
-    public void setIsSMS(int[] isSMS) {
+    public void setIsSMS(String isSMS) {
         this.isSMS = isSMS;
     }
 
