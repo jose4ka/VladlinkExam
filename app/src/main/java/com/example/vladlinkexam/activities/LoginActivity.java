@@ -16,8 +16,8 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.example.vladlinkexam.R;
-import com.example.vladlinkexam.fragments.FragmentPhoneEnter;
-import com.example.vladlinkexam.fragments.FragmentSMSCheck;
+import com.example.vladlinkexam.fragments.login.FragmentPhoneEnter;
+import com.example.vladlinkexam.fragments.login.FragmentSMSCheck;
 import com.example.vladlinkexam.interfaces.InterfaceLoginActivity;
 import com.example.vladlinkexam.model.login.phoneNumber.MPhoneNumberData;
 import com.example.vladlinkexam.model.login.requestID.MRequestCodeData;

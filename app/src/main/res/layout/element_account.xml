@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created by Dmitry Garmyshev on 15.07.20 19:36
+  ~ Copyright (c) 2020 . All rights reserved.
+  ~ Last modified 15.07.20 19:36
+  ~
+  -->
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvLAccountId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Account Id"/>
+
+    <TextView
+        android:id="@+id/tvLAccountEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Account email"/>
+
+    <TextView
+        android:id="@+id/tvLAccountFullName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Account full name"/>
+
+    <TextView
+        android:id="@+id/tvLAccountULogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Account uLogin"/>
+
+    <Button
+        android:id="@+id/btnLAccountSelect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NEXT"/>
+
+
+</LinearLayout>

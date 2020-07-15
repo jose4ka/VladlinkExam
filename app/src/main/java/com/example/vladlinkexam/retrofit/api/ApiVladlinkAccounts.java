@@ -9,7 +9,7 @@ package com.example.vladlinkexam.retrofit.api;
 
 
 import com.example.vladlinkexam.model.accounts.accountsList.MAccountsListData;
-import com.example.vladlinkexam.model.accounts.oneAccount.MOneAccountData;
+import com.example.vladlinkexam.model.accounts.oneAccount.MSingleAccountData;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -26,6 +26,6 @@ public interface ApiVladlinkAccounts {
 
     @GET(PREFIX+"/{account_id}")
     @Headers("Content-Type: application/json")
-    Call<MOneAccountData> getAccountData(@Header( "Authorization") String token
+    Call<MSingleAccountData> getAccountData(@Header( "Authorization") String token
     , @Path("account_id") long id);
 }

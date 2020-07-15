@@ -8,15 +8,18 @@
 package com.example.vladlinkexam.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.util.Log;
 
 import com.example.vladlinkexam.R;
+import com.example.vladlinkexam.fragments.accounts.FragmentAccountInfo;
+import com.example.vladlinkexam.fragments.accounts.FragmentAccountsList;
 import com.example.vladlinkexam.interfaces.InterfaceSessionActivity;
 import com.example.vladlinkexam.model.accounts.accountsList.MAccountsListData;
-import com.example.vladlinkexam.model.accounts.oneAccount.MOneAccount;
-import com.example.vladlinkexam.model.accounts.oneAccount.MOneAccountData;
+import com.example.vladlinkexam.model.accounts.oneAccount.MSingleAccount;
+import com.example.vladlinkexam.model.accounts.oneAccount.MSingleAccountData;
 import com.example.vladlinkexam.retrofit.NetworkService;
 
 import java.util.List;
@@ -29,6 +32,11 @@ public class SessionActivity extends AppCompatActivity implements InterfaceSessi
 
     private static final String LOG_TAG = "SESSION_ACTIVITY";
 
+    private FragmentAccountsList fragmentAccountsList;
+    private FragmentAccountInfo fragmentAccountInfo;
+    private FragmentTransaction fragmentTransaction;
+
+
     private String currentToken;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,14 +44,37 @@ public class SessionActivity extends AppCompatActivity implements InterfaceSessi
         setContentView(R.layout.activity_session);
         currentToken = getIntent().getStringExtra("token");
 
-        testAccounts(currentToken);
+        showAccountsList();
+
     }
 
 
-    private void testAccounts(String token){
+
+
+    @Override
+    public void showAccountInfo(long id) {
+        fragmentAccountInfo = new FragmentAccountInfo(currentToken, id, this);
+        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.frameAccountsMain, fragmentAccountInfo);
+        fragmentTransaction.commit();
+    }
+
+    @Override
+    public void showAccountsList() {
+        fragmentAccountsList = new FragmentAccountsList(currentToken, this);
+        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.frameAccountsMain, fragmentAccountsList);
+        fragmentTransaction.commit();
+    }
+
+
+
+    @Override
+    public List<MAccountsListData> getAccountsList() {
+
         NetworkService.getInstance()
                 .getAccountsApi()
-                .getAccounts(token)
+                .getAccounts(currentToken)
                 .enqueue(new Callback<MAccountsListData>() {
                     @Override
                     public void onResponse(Call<MAccountsListData> call, Response<MAccountsListData> response) {
@@ -53,8 +84,6 @@ public class SessionActivity extends AppCompatActivity implements InterfaceSessi
                                 Log.i(LOG_TAG, "Получен список аккаунтов!");
                                 Log.i(LOG_TAG, "List data: "+response.body().getData().get(0).getId());
                                 Log.i(LOG_TAG, "List data: "+response.body().getData().get(0).getEmail());
-
-                                getAccountInfo();
                             }
                             else {
                                 Log.i(LOG_TAG, "Пустой список аккаунтов!");
@@ -80,16 +109,20 @@ public class SessionActivity extends AppCompatActivity implements InterfaceSessi
 
                     }
                 });
+
+        return null;
     }
 
 
-    private void getAccountInfo(){
+    @Override
+    public MSingleAccount getSelectedAccount() {
+
         NetworkService.getInstance()
                 .getAccountsApi()
                 .getAccountData(currentToken, 150396l).
-                enqueue(new Callback<MOneAccountData>() {
+                enqueue(new Callback<MSingleAccountData>() {
                     @Override
-                    public void onResponse(Call<MOneAccountData> call, Response<MOneAccountData> response) {
+                    public void onResponse(Call<MSingleAccountData> call, Response<MSingleAccountData> response) {
                         try {
                             Log.i(LOG_TAG, call.request().toString());
                             if(response.body() != null){
@@ -108,7 +141,7 @@ public class SessionActivity extends AppCompatActivity implements InterfaceSessi
                     }
 
                     @Override
-                    public void onFailure(Call<MOneAccountData> call, Throwable t) {
+                    public void onFailure(Call<MSingleAccountData> call, Throwable t) {
 
                         try {
                             Log.i(LOG_TAG, "FAILURE!");
@@ -120,15 +153,9 @@ public class SessionActivity extends AppCompatActivity implements InterfaceSessi
                         }
                     }
                 });
-    }
 
-    @Override
-    public List<MAccountsListData> getAccountsList(String token) {
         return null;
     }
 
-    @Override
-    public MOneAccount getSelectedAccount(String token) {
-        return null;
-    }
+
 }

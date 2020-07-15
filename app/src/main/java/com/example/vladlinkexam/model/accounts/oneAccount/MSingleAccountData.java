@@ -10,19 +10,19 @@ package com.example.vladlinkexam.model.accounts.oneAccount;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class MOneAccountData {
+public class MSingleAccountData {
 
     @SerializedName("data")
     @Expose
-    private MOneAccount data;
+    private MSingleAccount data;
 
-    private MOneAccountData(){}
+    private MSingleAccountData(){}
 
-    public MOneAccount getData() {
+    public MSingleAccount getData() {
         return data;
     }
 
-    public void setData(MOneAccount data) {
+    public void setData(MSingleAccount data) {
         this.data = data;
     }
 }

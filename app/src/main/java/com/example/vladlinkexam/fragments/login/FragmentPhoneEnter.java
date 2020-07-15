@@ -1,11 +1,11 @@
 /*
- * Created by Dmitry Garmyshev on 14.07.20 14:11
+ * Created by Dmitry Garmyshev on 15.07.20 19:32
  * Copyright (c) 2020 . All rights reserved.
- * Last modified 14.07.20 14:11
+ * Last modified 14.07.20 18:56
  *
  */
 
-package com.example.vladlinkexam.fragments;
+package com.example.vladlinkexam.fragments.login;
 
 import android.os.Bundle;
 

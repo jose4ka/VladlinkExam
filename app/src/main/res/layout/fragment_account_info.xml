@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created by Dmitry Garmyshev on 15.07.20 19:33
+  ~ Copyright (c) 2020 . All rights reserved.
+  ~ Last modified 15.07.20 19:33
+  ~
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.accounts.FragmentAccountInfo">
+
+    <Button
+        android:id="@+id/btnIAccountBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BACK"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/tvIAccountId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Id" />
+
+            <TextView
+                android:id="@+id/tvIAccountULogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="uLogin" />
+
+            <TextView
+                android:id="@+id/tvIAccountFullName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="fullName" />
+
+            <TextView
+                android:id="@+id/tvIAccountEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="accountEmail" />
+
+            <TextView
+                android:id="@+id/tvIAccountBill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="bill" />
+
+            <TextView
+                android:id="@+id/tvIAccountBlock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="block" />
+
+            <TextView
+                android:id="@+id/tvIAccountCBlock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="cblock" />
+
+            <TextView
+                android:id="@+id/tvIAccountTariff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="tariff" />
+
+            <TextView
+                android:id="@+id/tvIAccountTariffNext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="tariff_next" />
+
+            <TextView
+                android:id="@+id/tvIAccountTariffCurrentName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="tariff_currentName" />
+
+            <TextView
+                android:id="@+id/tvIAccountTariffCurrentId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="tariff_currentId" />
+
+            <TextView
+                android:id="@+id/tvIAccountTariffCurrentAbonPay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="tariff_currentAbonPay" />
+
+            <TextView
+                android:id="@+id/tvIAccountTariffCurrentMaxCredit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="tariff_currentMaxCredit" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/tvIAccountAddresses"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/tvIAccountIsJuridical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="isJuridical" />
+
+            <TextView
+                android:id="@+id/tvIAccountIsSMS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="isJuridical" />
+
+            <TextView
+                android:id="@+id/tvIAccountCityId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="icity_id" />
+
+            <TextView
+                android:id="@+id/tvIAccountSkidko"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="skidko" />
+
+            <TextView
+                android:id="@+id/tvIAccountBalls"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="balls" />
+
+            <TextView
+                android:id="@+id/tvIAccountCredit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="credit" />
+
+            <TextView
+                android:id="@+id/tvIAccountIsPhoneUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="is phone user" />
+
+            <TextView
+                android:id="@+id/tvIAccountUCStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ucStatus" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+
+</LinearLayout>

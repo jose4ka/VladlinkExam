@@ -14,7 +14,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class MOneAccount {
+public class MSingleAccount {
     @SerializedName("id")
     @Expose
     private long id;
@@ -51,9 +51,9 @@ public class MOneAccount {
     @Expose
     private float tariffNext;
 
-    @SerializedName("tariff_curent")
+    @SerializedName("tariff_current")
     @Expose
-    private MTariffCurrent tariffCurent;
+    private MTariffCurrent tariffCurrent;
 
     @SerializedName("u_address")
     @Expose
@@ -87,11 +87,11 @@ public class MOneAccount {
     @Expose
     private boolean isPhoneUser;
 
-    @SerializedName("us_status")
+    @SerializedName("uc_status")
     @Expose
     private int ucStatus;
 
-    public MOneAccount(){}
+    public MSingleAccount(){}
 
     public long getId() {
         return id;
@@ -173,12 +173,12 @@ public class MOneAccount {
         this.tariffNext = tariffNext;
     }
 
-    public MTariffCurrent getTariffCurent() {
-        return tariffCurent;
+    public MTariffCurrent getTariffCurrent() {
+        return tariffCurrent;
     }
 
-    public void setTariffCurent(MTariffCurrent tariffCurent) {
-        this.tariffCurent = tariffCurent;
+    public void setTariffCurrent(MTariffCurrent tariffCurrent) {
+        this.tariffCurrent = tariffCurrent;
     }
 
     public boolean isJuridical() {
