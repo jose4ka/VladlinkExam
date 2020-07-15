@@ -108,7 +108,7 @@
                 android:text="tariff_currentMaxCredit" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/tvIAccountAddresses"
+                android:id="@+id/rvIAccountAddresses"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 

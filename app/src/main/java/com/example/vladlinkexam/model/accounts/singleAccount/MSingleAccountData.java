@@ -5,7 +5,10 @@
  *
  */
 
-package com.example.vladlinkexam.model.accounts.oneAccount;
+/*
+Data обёртка для класса MSingleAccount
+ */
+package com.example.vladlinkexam.model.accounts.singleAccount;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

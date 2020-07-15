@@ -5,12 +5,14 @@
  *
  */
 
+//Модель запроса для авторизации по СМС-коду
+
 package com.example.vladlinkexam.model.login.smsQuery;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-//Модель запроса для авторизации по СМС-коду
+
 public class MSMSQuery {
 
     @SerializedName("phone")

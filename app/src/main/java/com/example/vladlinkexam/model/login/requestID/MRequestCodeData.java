@@ -5,9 +5,12 @@
  *
  */
 
+/*
+Data бертка для модели ответа на номер телефона
+ */
 package com.example.vladlinkexam.model.login.requestID;
 
-import com.example.vladlinkexam.model.login.requestID.MRequestID;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

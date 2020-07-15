@@ -5,6 +5,13 @@
  *
  */
 
+/*
+Данная модель используется для получения СПИСКА счетов
+
+Так-же хочется сказать о приставке M, в начале названия каждой модели
+M - Model, это помогает лучше ориентироваться при написании кода
+ */
+
 package com.example.vladlinkexam.model.accounts.accountsList;
 
 import com.example.vladlinkexam.model.accounts.subclasses.MAddress;
@@ -13,6 +20,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
+
 
 public class MAccount {
 

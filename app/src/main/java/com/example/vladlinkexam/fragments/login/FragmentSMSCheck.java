@@ -5,6 +5,13 @@
  *
  */
 
+/*
+Данный фрагмент у нас используется для проверки кода СМС и выполнения дальнейшего запроса
+на получения токена
+
+Для связи с родительскойактивностью используется интерфейс
+ */
+
 package com.example.vladlinkexam.fragments.login;
 
 import android.os.Bundle;
@@ -19,15 +26,14 @@ import android.widget.EditText;
 
 import com.example.vladlinkexam.R;
 import com.example.vladlinkexam.interfaces.InterfaceLoginActivity;
-import com.example.vladlinkexam.session.Session;
 
 
 public class FragmentSMSCheck extends Fragment {
 
     private InterfaceLoginActivity interfaceLoginActivity;
 
-
-    private View v;
+    //Элементы экрана
+    private View mainView;
     private Button btnCheckSMSCode;
     private EditText etSMSCode;
 
@@ -38,20 +44,26 @@ public class FragmentSMSCheck extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        v = inflater.inflate(R.layout.fragment_s_m_s_check, container, false);
+        mainView = inflater.inflate(R.layout.fragment_s_m_s_check, container, false);
         initializeScreenElements();
-        return v;
+        return mainView;
     }
 
+
     private void initializeScreenElements(){
-        btnCheckSMSCode = v.findViewById(R.id.btnCheckSMSCode);
+        btnCheckSMSCode = mainView.findViewById(R.id.btnCheckSMSCode);
         btnCheckSMSCode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                /*
+                Всё что требудется - обратиться к род. активности, и проверить код
+                Дальше активность решает сама, что делать дальше
+                */
                 interfaceLoginActivity.checkSMSCode(etSMSCode.getText().toString());
             }
         });
-        etSMSCode = v.findViewById(R.id.etSMSCode);
+
+        etSMSCode = mainView.findViewById(R.id.etSMSCode);
     }
 
 

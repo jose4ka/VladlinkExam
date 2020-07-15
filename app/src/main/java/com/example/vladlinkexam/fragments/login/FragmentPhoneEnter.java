@@ -5,6 +5,13 @@
  *
  */
 
+/*
+Данный фрагмент у нас используется для ввода номера телефона, и выполнения дальнейшего запроса
+на получения кода доступа
+
+Для связи с родительскойактивностью используется интерфейс
+ */
+
 package com.example.vladlinkexam.fragments.login;
 
 import android.os.Bundle;
@@ -27,11 +34,12 @@ public class FragmentPhoneEnter extends Fragment {
     //Интерфейс для связи с родительской активностью
     private InterfaceLoginActivity interfaceLoginActivity;
 
-    private View v;
+    //View элементы с экрана
+    private View mainView;
     private Button btnConfirmPhoneNumber;
     private EditText etPhoneNumber;
 
-
+    //Получаем интерфейс для взаимодействия с родительской активностью
     public FragmentPhoneEnter(InterfaceLoginActivity interfaceLoginActivity){
         this.interfaceLoginActivity = interfaceLoginActivity;
     }
@@ -40,17 +48,23 @@ public class FragmentPhoneEnter extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        v = inflater.inflate(R.layout.fragment_phone_enter, container, false);
+        mainView = inflater.inflate(R.layout.fragment_phone_enter, container, false);
         initializeScreenElements();
-
-        return v;
-
+        return mainView;
     }
 
 
+    /*
+    Отдельный метод для инициализации элементов экрана
+    Больше используется для удобности
+     */
     private void initializeScreenElements(){
-        btnConfirmPhoneNumber = v.findViewById(R.id.btnConfirmPhoneNumber);
+        btnConfirmPhoneNumber = mainView.findViewById(R.id.btnConfirmPhoneNumber);
         btnConfirmPhoneNumber.setOnClickListener(new OnClickListener() {
+            /*
+            В данном обработчике после проверки номера на валидность,
+            через интерфейс обращаемся к активности и выаолняем запрос на получение кода
+             */
             @Override
             public void onClick(View view) {
                 if(isValidPhoneNumber()){
@@ -60,11 +74,14 @@ public class FragmentPhoneEnter extends Fragment {
             }
         });
 
-        etPhoneNumber = v.findViewById(R.id.etPhoneNumber);
-
+        etPhoneNumber = mainView.findViewById(R.id.etPhoneNumber);
     }
 
     //Метод для проверки введённого номера на валидность
+    /*
+    Основные критерии - первый знак должен равняться '+',
+    длина строки должна быть равна 12 (включая '+')
+     */
     private boolean isValidPhoneNumber(){
         String lNumber = etPhoneNumber.getText().toString();
 
@@ -80,4 +97,5 @@ public class FragmentPhoneEnter extends Fragment {
 
         return result;
     }
+
 }

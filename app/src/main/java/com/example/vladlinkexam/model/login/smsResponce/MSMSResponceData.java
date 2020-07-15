@@ -5,6 +5,9 @@
  *
  */
 
+/*
+Data обёртка для получения ответа при авторизации по СМС
+ */
 package com.example.vladlinkexam.model.login.smsResponce;
 
 import com.google.gson.annotations.Expose;

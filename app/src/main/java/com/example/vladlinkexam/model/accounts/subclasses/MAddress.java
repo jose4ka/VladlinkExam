@@ -5,6 +5,11 @@
  *
  */
 
+/*
+Модель вложенных объектов в MAddress и MSingleAddress
+
+Конкретно тут собираются данные об адресах пользователя
+ */
 package com.example.vladlinkexam.model.accounts.subclasses;
 
 import com.google.gson.annotations.Expose;
@@ -22,7 +27,7 @@ public class MAddress {
 
     @SerializedName("floor")
     @Expose
-    private String floor = null;
+    private String floor;
 
     @SerializedName("porch")
     @Expose

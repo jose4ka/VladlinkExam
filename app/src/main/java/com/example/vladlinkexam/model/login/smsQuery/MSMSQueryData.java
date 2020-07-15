@@ -5,9 +5,12 @@
  *
  */
 
+/*
+Data обёртка для авторизации по СМС-коду
+ */
 package com.example.vladlinkexam.model.login.smsQuery;
 
-import com.example.vladlinkexam.model.login.smsQuery.MSMSQuery;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

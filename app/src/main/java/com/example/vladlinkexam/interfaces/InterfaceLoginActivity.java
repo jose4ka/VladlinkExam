@@ -7,17 +7,14 @@
 
 package com.example.vladlinkexam.interfaces;
 
-import com.example.vladlinkexam.session.Session;
-
 public interface InterfaceLoginActivity {
 
-    Session getAuthCode(String phone);
+    void getAuthCode(String phone);
 
-    Session checkSMSCode(String code);
+    void checkSMSCode(String code);
 
     void showFragmentPhoneEnter();
 
     void showFragmentSMSCheck();
 
-    void startSessionActivity(String token);
 }

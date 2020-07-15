@@ -5,12 +5,14 @@
  *
  */
 
+//Модель для отправки номера телефона на сервер
+
 package com.example.vladlinkexam.model.login.phoneNumber;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-//Модель для отправки номера телефона на сервер
+
 public class MPhoneNumber {
 
 

@@ -5,11 +5,21 @@
  *
  */
 
+/*
+Фрагмент который выводит на экран всю подробную информацию о выбранном счёте
+
+В конструктор он принимает токен для дальнейшего обращения к серверу а так-же id счёта, который нужно отобразить
+
+Для связи с родительской активностью используется интерфейс, котоый так же передаётся в конструкторе
+ */
+
 package com.example.vladlinkexam.fragments.accounts;
 
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,11 +27,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.vladlinkexam.R;
+import com.example.vladlinkexam.adapters.AdapterAddresses;
 import com.example.vladlinkexam.interfaces.InterfaceSessionActivity;
-import com.example.vladlinkexam.model.accounts.oneAccount.MSingleAccount;
-import com.example.vladlinkexam.model.accounts.oneAccount.MSingleAccountData;
+import com.example.vladlinkexam.model.accounts.singleAccount.MSingleAccount;
+import com.example.vladlinkexam.model.accounts.singleAccount.MSingleAccountData;
 import com.example.vladlinkexam.model.accounts.subclasses.MAddress;
 import com.example.vladlinkexam.retrofit.NetworkService;
 
@@ -35,10 +47,17 @@ import retrofit2.Response;
 public class FragmentAccountInfo extends Fragment {
 
     private static final String LOG_TAG = "SESSION_ACTIVITY";
+    private static final String LOG_SPACE = "==============================";
 
+    //Данные для обращения к серверу, получаем из конструктора
     private long selectedId;
     private String token;
 
+    private InterfaceSessionActivity interfaceSessionActivity;
+
+    private View mainView;
+
+    //Все элементы на экране для каждого поля выбранного счёта
     private TextView tvIAccountId
             ,tvIAccountEmail
             ,tvIAccountULogin
@@ -61,21 +80,15 @@ public class FragmentAccountInfo extends Fragment {
             ,tvIAccountIsPhoneUser
             ,tvIAccountUCStatus;
 
-    private List<MAddress> listAddresses;
+    private Button btnIAccountBack; //Кнопка "назад"
 
-    private Button btnIAccountBack;
-
-    private View mainView;
-
-    private InterfaceSessionActivity interfaceSessionActivity;
+    private RecyclerView rvAddresses; //RV для отображения адресов
 
     public FragmentAccountInfo(String token, long selectedId, InterfaceSessionActivity interfaceSessionActivity) {
         this.token = token;
         this.selectedId = selectedId;
         this.interfaceSessionActivity = interfaceSessionActivity;
     }
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -84,9 +97,14 @@ public class FragmentAccountInfo extends Fragment {
 
         initializeScreenElements();
         getAccountData(selectedId);
+
         return mainView;
     }
 
+    /*
+    Отдельный метод для инициализации элементов на экране
+    в данном случае очень хорошо подходит :)
+     */
     private void initializeScreenElements(){
         tvIAccountEmail = mainView.findViewById(R.id.tvIAccountEmail);
         tvIAccountFullName = mainView.findViewById(R.id.tvIAccountFullName);
@@ -114,9 +132,12 @@ public class FragmentAccountInfo extends Fragment {
         btnIAccountBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Активность просто выставляет на экран другой фрагмент
                 interfaceSessionActivity.showAccountsList();
             }
         });
+
+        rvAddresses = mainView.findViewById(R.id.rvIAccountAddresses);
     }
 
 
@@ -128,44 +149,61 @@ public class FragmentAccountInfo extends Fragment {
                     @Override
                     public void onResponse(Call<MSingleAccountData> call, Response<MSingleAccountData> response) {
                         try {
+                            Log.i(LOG_TAG, LOG_SPACE);
+                            Log.i(LOG_TAG, "Получение информации о счёте: "+id);
                             Log.i(LOG_TAG, call.request().toString());
+
                             if(response.body() != null){
-                                Log.i(LOG_TAG, "Получен отдельный аккаунт!");
-                                Log.i(LOG_TAG, Long.toString(response.body().getData().getId()));
-                                Log.i(LOG_TAG, response.body().getData().getTariffCurrent().getTname());
-                                Log.i(LOG_TAG, response.body().getData().getFullName());
-                                Log.i(LOG_TAG, response.body().getData().getuLogin());
+                                Log.i(LOG_TAG, "Получен счёт: "+id);
 
+                                //Извлекаем из тела ответа адреса, и сразу их выводим
+                                List<MAddress> listAddresses = response.body().getData().getuMAddresses();
+                                showAddresses(listAddresses);
 
+                                //Заполняем все остальные поля на экране
                                 fillScreenFields(response.body().getData());
-
+                                Log.i(LOG_TAG, LOG_SPACE);
                             }
                             else {
-                                Log.i(LOG_TAG, "Пустой аккаунт!");
-                                Log.i(LOG_TAG, response.errorBody().string());
+                                Log.i(LOG_TAG, LOG_SPACE);
+                                Log.i(LOG_TAG, "С сервера получен пустой объект, или возникла ошибка на стороне сервера");
+                                Toast.makeText(getContext(), "С сервера получен пустой объект, или возникла ошибка на стороне сервера!", Toast.LENGTH_SHORT).show();
+
+                                if(response.errorBody() != null){
+                                    Log.e(LOG_TAG, response.errorBody().string()); //Выводим ошибку с сервера
+                                    Log.i(LOG_TAG, LOG_SPACE);
+                                }
                             }
                         }
                         catch (Exception e){
-
+                            Toast.makeText(getContext(), "Ошибка при чтении полученного ответа!", Toast.LENGTH_SHORT).show();
+                            Log.i(LOG_TAG, LOG_SPACE);
+                            Log.e(LOG_TAG, "Ошибка при чтении полученного ответа: ");
+                            Log.e(LOG_TAG, e.getMessage());
+                            Log.i(LOG_TAG, LOG_SPACE);
                         }
                     }
 
                     @Override
                     public void onFailure(Call<MSingleAccountData> call, Throwable t) {
-
-                        try {
-                            Log.i(LOG_TAG, "FAILURE!");
-                            Log.i(LOG_TAG, call.request().toString());
-                            Log.i(LOG_TAG, t.getMessage());
-                        }
-                        catch (Exception e){
-                            Log.i(LOG_TAG, e.getMessage());
-                        }
+                        Toast.makeText(getContext(), "Ошибка при выполнении запроса к серверу!", Toast.LENGTH_SHORT).show();
+                        Log.i(LOG_TAG, LOG_SPACE);
+                        Log.e(LOG_TAG, "Ошибка при выполнении запроса к серверу");
+                        Log.e(LOG_TAG, t.getMessage());
+                        Log.i(LOG_TAG, LOG_SPACE);
                     }
                 });
     }
 
 
+    //Отдельный метод для вывода элеменов в RV
+    private void showAddresses(List<MAddress> addresses){
+        AdapterAddresses adapterAddresses = new AdapterAddresses(getContext(), addresses);
+        rvAddresses.setAdapter(adapterAddresses);
+        rvAddresses.setLayoutManager(new LinearLayoutManager(getContext()));
+    }
+
+    //Отдельный метод для заполнения всех полей на экране
     private void fillScreenFields(MSingleAccount lSingleAccount){
         tvIAccountEmail.setText(lSingleAccount.getEmail());
         tvIAccountFullName.setText(lSingleAccount.getFullName());
@@ -189,4 +227,6 @@ public class FragmentAccountInfo extends Fragment {
         tvIAccountIsPhoneUser.setText(lSingleAccount.isPhoneUser() ? "Is phone user = true" : "Is phone user = false");
         tvIAccountUCStatus.setText(Integer.toString(lSingleAccount.getUcStatus()));
     }
+
+
 }

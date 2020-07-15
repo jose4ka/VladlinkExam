@@ -5,6 +5,9 @@
  *
  */
 
+/*
+Методы для работы с API логина
+ */
 package com.example.vladlinkexam.retrofit.api;
 
 import com.example.vladlinkexam.model.login.phoneNumber.MPhoneNumberData;
@@ -16,6 +19,8 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
+
+
 
 public interface ApiVladlinkLogin {
 

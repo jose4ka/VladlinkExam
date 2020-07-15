@@ -5,6 +5,11 @@
  *
  */
 
+/*
+Адаптер для отображения списка счетов
+
+Используются все самые обычные инструменты при работе с адаптерами
+ */
 package com.example.vladlinkexam.adapters;
 
 import android.content.Context;
@@ -12,7 +17,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -20,7 +24,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.vladlinkexam.R;
 import com.example.vladlinkexam.model.accounts.accountsList.MAccount;
-import com.example.vladlinkexam.model.accounts.accountsList.MAccountsListData;
 
 import java.util.List;
 
@@ -31,6 +34,7 @@ public class AdapterAccounts extends RecyclerView.Adapter<AdapterAccounts.ViewHo
 
     private LayoutInflater mInflater;
 
+    //Интерфейс для связи с фрагментом, который содержит этот адаптер
     private CallbackBtn callbackBtn;
 
     public AdapterAccounts(Context context, CallbackBtn callbackBtn, List<MAccount> data){
@@ -89,7 +93,7 @@ public class AdapterAccounts extends RecyclerView.Adapter<AdapterAccounts.ViewHo
             this.btnLAccountSelect.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    callbackBtn.selected(mData.get(getLayoutPosition()).getId());
+                    callbackBtn.selectItem(mData.get(getLayoutPosition()).getId());
                 }
             });
         }
@@ -98,6 +102,8 @@ public class AdapterAccounts extends RecyclerView.Adapter<AdapterAccounts.ViewHo
 
     //Интерфейс для связи с основным фрагментом, где используется этот адаптер
     public interface CallbackBtn{
-        void selected(long accountId);
+
+        //Передаём Id счёта, подробную информацию о котором мы хотим получить
+        void selectItem(long accountId);
     }
 }

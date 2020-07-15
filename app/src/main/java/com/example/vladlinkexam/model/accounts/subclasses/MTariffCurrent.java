@@ -5,6 +5,12 @@
  *
  */
 
+/*
+Модель вложенных объектов в MAddress и MSingleAddress
+
+Конкретно тут собираются данные о тарифе пользователя
+ */
+
 package com.example.vladlinkexam.model.accounts.subclasses;
 
 import com.google.gson.annotations.Expose;

@@ -5,16 +5,15 @@
  *
  */
 
+//Используем агрегацию
+//"data" обёртка для модели MPhoneData
+
 package com.example.vladlinkexam.model.login.phoneNumber;
 
-
-
-import com.example.vladlinkexam.model.login.phoneNumber.MPhoneNumber;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-//Используем агрегацию
-//"data" обёртка для
+
 public class MPhoneNumberData {
 
     @SerializedName("data")

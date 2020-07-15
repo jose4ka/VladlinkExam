@@ -5,12 +5,14 @@
  *
  */
 
+//Модель ответа на отправленный номер телефона
+
 package com.example.vladlinkexam.model.login.requestID;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-//Модель ответа на отправленный номер телефона
+
 public class MRequestID {
 
     @SerializedName("request_id")

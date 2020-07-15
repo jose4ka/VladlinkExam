@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created by Dmitry Garmyshev on 15.07.20 21:43
+  ~ Copyright (c) 2020 . All rights reserved.
+  ~ Last modified 15.07.20 21:43
+  ~
+  -->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_settings_all"
+        android:icon="@drawable/ic_baseline_menu_96"
+        android:orderInCategory="200"
+        android:title="Опции"
+        app:showAsAction="always">
+        <menu>
+            <item
+                android:id="@+id/action_logout"
+                android:icon="@drawable/ic_baseline_exit_to_app_96"
+                android:orderInCategory="200"
+                android:title="LogOut"
+                app:showAsAction="always">
+            </item>
+
+        </menu>
+    </item>
+</menu>

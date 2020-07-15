@@ -7,16 +7,7 @@
 
 package com.example.vladlinkexam.interfaces;
 
-import com.example.vladlinkexam.model.accounts.accountsList.MAccountsListData;
-import com.example.vladlinkexam.model.accounts.oneAccount.MSingleAccount;
-
-import java.util.List;
-
 public interface InterfaceSessionActivity {
-
-    List<MAccountsListData> getAccountsList();
-
-    MSingleAccount getSelectedAccount();
 
     void showAccountsList();
 

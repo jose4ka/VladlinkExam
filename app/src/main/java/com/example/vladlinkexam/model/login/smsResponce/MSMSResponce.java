@@ -5,12 +5,14 @@
  *
  */
 
+//Модель ответа при авторизации по SMS-коду
+
 package com.example.vladlinkexam.model.login.smsResponce;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-//Модель ответа для авторизации по SMS-коду
+
 public class MSMSResponce {
 
     @SerializedName("uid")

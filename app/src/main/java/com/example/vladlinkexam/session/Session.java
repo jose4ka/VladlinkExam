@@ -5,30 +5,22 @@
  *
  */
 
+/*
+Отдельный класс - контейнер, для более удобного хренения переменных и данных о текщей сессии
+ */
+
 package com.example.vladlinkexam.session;
+
 
 public class Session {
 
-    //Номер телефона который был использован при авторизации в этой сессии
-    private String phoneNumber;
-
-    //Код который запрашивался для СМС
-    private long requestID;
-
-    private long uid;
-
-    //Код пришедший в СМС (согласно ТЗ, он всегда равен 1234)
-    private String autorizationCode = "1234";
-
-    //Токен доступа к текущей сессии
-    private String authToken;
-
-    //Имя текущего пользователя авторизованного в системе
-    private String currentUserName;
-
-    private long[] publicUids;
-
-    private String name;
+    private String phoneNumber; //Номер телефона который используется для авторизации в этой сессии
+    private long requestID; //Код который запрашивается для СМС
+    private long uid; //Тип пользователя
+    private String authCode; //Код пришедший в СМС
+    private String authToken; //Токен доступа в текущей сессии
+    private String currentUserName; //Имя текущего пользователя авторизованного в системе
+    private long[] publicUids; //Доступные ID абон. счетов
 
     public Session(){}
 
@@ -48,12 +40,12 @@ public class Session {
         this.requestID = requestID;
     }
 
-    public String getAutorizationCode() {
-        return autorizationCode;
+    public String getAuthCode() {
+        return authCode;
     }
 
-    public void setAutorizationCode(String autorizationCode) {
-        this.autorizationCode = autorizationCode;
+    public void setAuthCode(String authCode) {
+        this.authCode = authCode;
     }
 
     public String getAuthToken() {
@@ -78,14 +70,6 @@ public class Session {
 
     public void setPublicUids(long[] publicUids) {
         this.publicUids = publicUids;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public long getUid() {

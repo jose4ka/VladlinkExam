@@ -5,7 +5,16 @@
  *
  */
 
-package com.example.vladlinkexam.model.accounts.oneAccount;
+/*
+Модель для получения полных данных о счёте
+
+Отличие от MAccount заключается в том, что при получении подробных данных о счёте,
+поле isSMS приходит в виде строки, а не массив целых чисел как в MAccount
+
+Поэтому, для приёма корректных данных отдельного счёта, пришлось создавать новую модель
+и обёртку под неё
+ */
+package com.example.vladlinkexam.model.accounts.singleAccount;
 
 import com.example.vladlinkexam.model.accounts.subclasses.MAddress;
 import com.example.vladlinkexam.model.accounts.subclasses.MTariffCurrent;
