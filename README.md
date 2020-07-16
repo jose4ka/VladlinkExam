@@ -4,4 +4,4 @@
 
 Скриншоты приложения
 =====================
-![Скриншот] (https://github.com/loakdv/VladlinkExam/blob/master/readmeData/appScreens/photo_2020-07-16_10-36-08.jpg?raw=true)
+![Экран приложения №1, ActivityLogin, FragmentPhoneEnter] (https://github.com/loakdv/VladlinkExam/blob/master/readmeData/appScreens/photo_2020-07-16_10-36-08.jpg?raw=true)
