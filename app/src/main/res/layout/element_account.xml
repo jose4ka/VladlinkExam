@@ -6,40 +6,61 @@
   ~
   -->
 
-<LinearLayout
+<androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    style="@style/ListElement"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tvLAccountId"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Account Id"/>
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tvLAccountEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Account email"/>
+        <TextView
+            android:textColor="@color/colorText"
+            android:layout_margin="5dp"
+            android:id="@+id/tvLAccountId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Account Id"/>
 
-    <TextView
-        android:id="@+id/tvLAccountFullName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Account full name"/>
+        <TextView
+            android:textColor="@color/colorText"
+            android:layout_margin="5dp"
+            android:id="@+id/tvLAccountEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Account email"/>
 
-    <TextView
-        android:id="@+id/tvLAccountULogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Account uLogin"/>
+        <TextView
+            android:textColor="@color/colorText"
+            android:layout_margin="5dp"
+            android:id="@+id/tvLAccountFullName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Account full name"/>
 
-    <Button
-        android:id="@+id/btnLAccountSelect"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="NEXT"/>
+        <TextView
+            android:textColor="@color/colorText"
+            android:layout_margin="5dp"
+            android:id="@+id/tvLAccountULogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Account uLogin"/>
+
+        <Button
+            android:textColor="@color/colorWhite"
+            android:theme="@style/OrangeButton"
+            android:id="@+id/btnLAccountSelect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/select"
+            android:layout_gravity="end"/>
 
 
-</LinearLayout>
+    </LinearLayout>
+
+
+
+</androidx.cardview.widget.CardView>

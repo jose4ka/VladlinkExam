@@ -1,4 +1,31 @@
 <resources>
     <string name="app_name">Vladlink Exam</string>
-
+    <string name="enter">Войти</string>
+    <string name="next">Далее</string>
+    <string name="check">Проверить</string>
+    <string name="phone_number">Номер телефона</string>
+    <string name="empty_phone_number"></string>
+    <string name="sms_code">СМС код</string>
+    <string name="phone_number_hint">По ТЗ, заведомо рабочий номер телефона: "+79444444444"</string>
+    <string name="sms_hint">По ТЗ, заведомо исправный СМС код: "1234"</string>
+    <string name="accounts_list_hint">В данном окне выводятся все доступные счета</string>
+    <string name="account_hint">В данном окне выводится подробная информация о счёте</string>
+    <string name="options">Опции</string>
+    <string name="log_out">Выход</string>
+    <string name="select">Выбрать</string>
+    <string name="back">Назад</string>
+    <string name="tariff">Тариф:</string>
+    <string name="tariff_current">Текущий тариф:</string>
+    <string name="tariff_next">Следующий тариф:</string>
+    <string name="overview">Общая информация: </string>
+    <string name="abon_pay">Абонентская плата: </string>
+    <string name="bill">Счёт: </string>
+    <string name="block">Блокировка: </string>
+    <string name="addresses">Адреса: </string>
+    <string name="balls">Баллы: </string>
+    <string name="skidka">Скидка: </string>
+    <string name="credit">Кредит: </string>
+    <string name="is_phone_user">Пользователь телефона: </string>
+    <string name="city_id">ID города: </string>
+    <string name="jurid">Юридическая информация</string>
 </resources>

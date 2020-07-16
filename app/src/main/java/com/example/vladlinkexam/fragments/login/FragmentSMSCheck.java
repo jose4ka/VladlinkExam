@@ -23,6 +23,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.vladlinkexam.R;
 import com.example.vladlinkexam.interfaces.InterfaceLoginActivity;
@@ -59,13 +60,29 @@ public class FragmentSMSCheck extends Fragment {
                 Всё что требудется - обратиться к род. активности, и проверить код
                 Дальше активность решает сама, что делать дальше
                 */
-                interfaceLoginActivity.checkSMSCode(etSMSCode.getText().toString());
+                if (checkIsValidCode()){
+                    interfaceLoginActivity.checkSMSCode(etSMSCode.getText().toString());
+                }
+                else Toast.makeText(getContext(), "Пожалуйста, введите полученный код!",Toast.LENGTH_SHORT).show();
+
             }
         });
 
         etSMSCode = mainView.findViewById(R.id.etSMSCode);
     }
 
+
+    private boolean checkIsValidCode(){
+        boolean result = false;
+
+        String lCode = etSMSCode.getText().toString();
+
+        if((lCode != null) && (!lCode.isEmpty())){
+            result = true;
+        }
+
+        return result;
+    }
 
 
 }

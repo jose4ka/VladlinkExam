@@ -13,14 +13,14 @@
         android:id="@+id/action_settings_all"
         android:icon="@drawable/ic_baseline_menu_96"
         android:orderInCategory="200"
-        android:title="Опции"
+        android:title="@string/options"
         app:showAsAction="always">
         <menu>
             <item
                 android:id="@+id/action_logout"
                 android:icon="@drawable/ic_baseline_exit_to_app_96"
                 android:orderInCategory="200"
-                android:title="LogOut"
+                android:title="@string/log_out"
                 app:showAsAction="always">
             </item>
 

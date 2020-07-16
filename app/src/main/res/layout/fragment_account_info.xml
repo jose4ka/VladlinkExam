@@ -13,155 +13,347 @@
     android:layout_height="match_parent"
     tools:context=".fragments.accounts.FragmentAccountInfo">
 
-    <Button
-        android:id="@+id/btnIAccountBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="BACK"/>
-
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-        <LinearLayout
+        <Button
+            android:id="@+id/btnIAccountBack"
+            android:theme="@style/OrangeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorWhite"
+            android:text="@string/back"
+            android:layout_margin="10dp"/>
+
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_weight="1"
+            android:text="@string/account_hint"
+            android:textAlignment="center"
+            android:gravity="center"/>
+
+    </LinearLayout>
 
 
-            <TextView
-                android:id="@+id/tvIAccountId"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Id" />
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        style="@style/CardViewWindowElement">
 
-            <TextView
-                android:id="@+id/tvIAccountULogin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="uLogin" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/tvIAccountFullName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="fullName" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tvIAccountEmail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="accountEmail" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/overview"
+                    android:textColor="@color/colorText"
+                    android:layout_gravity="start"/>
+                <TextView
+                    android:id="@+id/tvIAccountId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/text_background"
+                    android:padding="5dp"
+                    android:text="Id"
+                    android:textColor="@color/colorText" />
 
-            <TextView
-                android:id="@+id/tvIAccountBill"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="bill" />
+                <TextView
+                    android:id="@+id/tvIAccountULogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/text_background"
+                    android:padding="5dp"
+                    android:text="uLogin"
+                    android:textColor="@color/colorText" />
 
-            <TextView
-                android:id="@+id/tvIAccountBlock"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="block" />
+                <TextView
+                    android:id="@+id/tvIAccountFullName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/text_background"
+                    android:padding="5dp"
+                    android:text="fullName"
+                    android:textColor="@color/colorText" />
 
-            <TextView
-                android:id="@+id/tvIAccountCBlock"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="cblock" />
+                <TextView
+                    android:id="@+id/tvIAccountEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/text_background"
+                    android:padding="5dp"
+                    android:text="accountEmail"
+                    android:textColor="@color/colorText" />
 
-            <TextView
-                android:id="@+id/tvIAccountTariff"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="tariff" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bill"
+                    android:textColor="@color/colorText"
+                    android:layout_gravity="start"/>
 
-            <TextView
-                android:id="@+id/tvIAccountTariffNext"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="tariff_next" />
+                <TextView
+                    android:id="@+id/tvIAccountBill"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/text_background"
+                    android:padding="5dp"
+                    android:text="bill"
+                    android:textColor="@color/colorText" />
 
-            <TextView
-                android:id="@+id/tvIAccountTariffCurrentName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="tariff_currentName" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/block"
+                    android:textColor="@color/colorText"
+                    android:layout_gravity="start"/>
+                <TextView
+                    android:id="@+id/tvIAccountBlock"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/text_background"
+                    android:padding="5dp"
+                    android:text="block"
+                    android:textColor="@color/colorText" />
 
-            <TextView
-                android:id="@+id/tvIAccountTariffCurrentId"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="tariff_currentId" />
+                <TextView
+                    android:id="@+id/tvIAccountCBlock"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/text_background"
+                    android:text="cblock"
+                    android:textColor="@color/colorText"
+                    android:padding="5dp" />
 
-            <TextView
-                android:id="@+id/tvIAccountTariffCurrentAbonPay"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="tariff_currentAbonPay" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tariff"
+                    android:textColor="@color/colorText"
+                    android:layout_gravity="start"/>
+                <TextView
+                    android:id="@+id/tvIAccountTariff"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/text_background"
+                    android:padding="5dp"
+                    android:text="tariff"
+                    android:textColor="@color/colorText" />
 
-            <TextView
-                android:id="@+id/tvIAccountTariffCurrentMaxCredit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="tariff_currentMaxCredit" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tariff_next"
+                    android:textColor="@color/colorText"
+                    android:layout_gravity="start"/>
+                <TextView
+                    android:id="@+id/tvIAccountTariffNext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/text_background"
+                    android:padding="5dp"
+                    android:text="tariff_next"
+                    android:textColor="@color/colorText" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvIAccountAddresses"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tariff_current"
+                    android:textColor="@color/colorText"
+                    android:layout_gravity="start"/>
+                <TextView
+                    android:id="@+id/tvIAccountTariffCurrentName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/text_background"
+                    android:padding="5dp"
+                    android:text="tariff_currentName"
+                    android:textColor="@color/colorText" />
 
-            <TextView
-                android:id="@+id/tvIAccountIsJuridical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="isJuridical" />
+                <TextView
+                    android:id="@+id/tvIAccountTariffCurrentId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/text_background"
+                    android:padding="5dp"
+                    android:text="tariff_currentId"
+                    android:textColor="@color/colorText" />
 
-            <TextView
-                android:id="@+id/tvIAccountIsSMS"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="isJuridical" />
+                <TextView
+                    android:id="@+id/tvIAccountTariffCurrentAbonPay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/text_background"
+                    android:padding="5dp"
+                    android:text="tariff_currentAbonPay"
+                    android:textColor="@color/colorText" />
 
-            <TextView
-                android:id="@+id/tvIAccountCityId"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="icity_id" />
+                <TextView
+                    android:id="@+id/tvIAccountTariffCurrentMaxCredit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/text_background"
+                    android:padding="5dp"
+                    android:text="tariff_currentMaxCredit"
+                    android:textColor="@color/colorText" />
 
-            <TextView
-                android:id="@+id/tvIAccountSkidko"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="skidko" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/addresses"
+                    android:textColor="@color/colorText"
+                    android:layout_gravity="start"/>
 
-            <TextView
-                android:id="@+id/tvIAccountBalls"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="balls" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvIAccountAddresses"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp" />
 
-            <TextView
-                android:id="@+id/tvIAccountCredit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="credit" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/jurid"
+                    android:textColor="@color/colorText"
+                    android:layout_gravity="start"/>
 
-            <TextView
-                android:id="@+id/tvIAccountIsPhoneUser"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="is phone user" />
+                <TextView
+                    android:id="@+id/tvIAccountIsJuridical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/text_background"
+                    android:padding="5dp"
+                    android:text="isJuridical"
+                    android:textColor="@color/colorText" />
 
-            <TextView
-                android:id="@+id/tvIAccountUCStatus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ucStatus" />
+                <TextView
+                    android:id="@+id/tvIAccountIsSMS"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/text_background"
+                    android:padding="5dp"
+                    android:text="isJuridical"
+                    android:textColor="@color/colorText" />
 
-        </LinearLayout>
-    </ScrollView>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/city_id"
+                    android:textColor="@color/colorText"
+                    android:layout_gravity="start"/>
+                <TextView
+                    android:id="@+id/tvIAccountCityId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/text_background"
+                    android:padding="5dp"
+                    android:text="icity_id"
+                    android:textColor="@color/colorText" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/skidka"
+                    android:textColor="@color/colorText"
+                    android:layout_gravity="start"/>
+                <TextView
+                    android:id="@+id/tvIAccountSkidko"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/text_background"
+                    android:padding="5dp"
+                    android:text="skidko"
+                    android:textColor="@color/colorText" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/balls"
+                    android:textColor="@color/colorText"
+                    android:layout_gravity="start"/>
+                <TextView
+                    android:id="@+id/tvIAccountBalls"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/text_background"
+                    android:padding="5dp"
+                    android:text="balls"
+                    android:textColor="@color/colorText" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/credit"
+                    android:textColor="@color/colorText"
+                    android:layout_gravity="start"/>
+                <TextView
+                    android:id="@+id/tvIAccountCredit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/text_background"
+                    android:padding="5dp"
+                    android:text="credit"
+                    android:textColor="@color/colorText" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/is_phone_user"
+                    android:textColor="@color/colorText"
+                    android:layout_gravity="start"/>
+                <TextView
+                    android:id="@+id/tvIAccountIsPhoneUser"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/text_background"
+                    android:padding="5dp"
+                    android:text="is phone user"
+                    android:textColor="@color/colorText" />
+
+                <TextView
+                    android:id="@+id/tvIAccountUCStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/text_background"
+                    android:padding="5dp"
+                    android:text="ucStatus"
+                    android:textColor="@color/colorText" />
+
+            </LinearLayout>
+        </ScrollView>
+
+    </androidx.cardview.widget.CardView>
+
 
 
 

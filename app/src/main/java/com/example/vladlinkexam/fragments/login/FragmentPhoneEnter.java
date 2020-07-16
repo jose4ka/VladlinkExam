@@ -67,7 +67,7 @@ public class FragmentPhoneEnter extends Fragment {
              */
             @Override
             public void onClick(View view) {
-                if(isValidPhoneNumber()){
+                if(checkIsValidPhoneNumber()){
                     interfaceLoginActivity.getAuthCode(etPhoneNumber.getText().toString());
                 }
                 else Toast.makeText(getContext(), "Пожалуйста, введите корректный номер", Toast.LENGTH_SHORT).show();
@@ -82,7 +82,7 @@ public class FragmentPhoneEnter extends Fragment {
     Основные критерии - первый знак должен равняться '+',
     длина строки должна быть равна 12 (включая '+')
      */
-    private boolean isValidPhoneNumber(){
+    private boolean checkIsValidPhoneNumber(){
         String lNumber = etPhoneNumber.getText().toString();
 
         boolean result = false;

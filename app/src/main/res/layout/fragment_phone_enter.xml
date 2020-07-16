@@ -13,21 +13,57 @@
     android:orientation="vertical"
     tools:context=".fragments.login.FragmentPhoneEnter">
 
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/CardViewWindowElement"
+        android:layout_margin="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_margin="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/phone_number"
+                android:textColor="@color/colorText"/>
+
+            <EditText
+                android:id="@+id/etPhoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:inputType="phone"
+                android:digits="0123456789+"
+                android:textAlignment="center"
+                android:autofillHints="" />
+
+            <Button
+                android:translationZ="4dp"
+                android:elevation="6dp"
+                android:theme="@style/OrangeButton"
+                android:layout_margin="5dp"
+                android:layout_gravity="center"
+                android:id="@+id/btnConfirmPhoneNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/next"
+                android:textColor="@color/colorWhite"
+                />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
     <TextView
+        android:textColor="@color/colorText"
+        android:layout_margin="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="PHONE NUMBER"/>
-
-    <EditText
-        android:id="@+id/etPhoneNumber"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-    <Button
-        android:id="@+id/btnConfirmPhoneNumber"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="NEXT"
-        />
+        android:layout_gravity="bottom"
+        android:text="@string/phone_number_hint" />
 
 </LinearLayout>
